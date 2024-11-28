@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'perfil.dart';
+import 'chat.dart';
+import 'favoritos.dart';
+import 'meusCarros.dart';
+import 'principal_Um.dart';
 
 void main() {
   runApp(AjudaApp());
@@ -121,25 +126,90 @@ class AjudaScreen extends StatelessWidget {
           ),
         ),
       ),
+      
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.purple,
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white70,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
+
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrincipalUm()),
+                );
+              },
+              child: Icon(Icons.home),
+      
+              ),
+               label: 'Home',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.help),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritosPage()),
+                );
+              },
+              child: Icon(Icons.favorite),
+      
+              ),
+               label: 'Favoritos',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MeusCarrosScreen()),
+                );
+              },
+              child: Icon(Icons.directions_car),
+      
+              ),
+               label: 'Meus Carros',
           ),
+
+
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
+              child: Icon(Icons.mail),
+      
+              ),
+               label: 'Chat',
+          ),
+
+          BottomNavigationBarItem(
+              icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PerfilPage()),
+                );
+              },
+              child: Icon(Icons.person),
+      
+              ),
+               label: 'Perfil',
+          ),
+
+          
         ],
       ),
     );
+
   }
+
 }

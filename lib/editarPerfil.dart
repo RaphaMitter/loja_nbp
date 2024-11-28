@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'perfil.dart';
+import 'chat.dart';
+import 'favoritos.dart';
+import 'meusCarros.dart';
+import 'principal_Um.dart';
  
 class EditProfileScreen extends StatelessWidget {
   @override
@@ -83,21 +88,92 @@ class EditProfileScreen extends StatelessWidget {
         ],
       ),
  
-      // Barra inferior de navegação
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.purple,
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white70,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.directions_car), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.mail), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+          BottomNavigationBarItem(
+
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrincipalUm()),
+                );
+              },
+              child: Icon(Icons.home),
+      
+              ),
+               label: 'Home',
+          ),
+
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritosPage()),
+                );
+              },
+              child: Icon(Icons.favorite),
+      
+              ),
+               label: 'Favoritos',
+          ),
+
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MeusCarrosScreen()),
+                );
+              },
+              child: Icon(Icons.directions_car),
+      
+              ),
+               label: 'Meus Carros',
+          ),
+
+
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
+              child: Icon(Icons.mail),
+      
+              ),
+               label: 'Chat',
+          ),
+
+          BottomNavigationBarItem(
+              icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PerfilPage()),
+                );
+              },
+              child: Icon(Icons.person),
+      
+              ),
+               label: 'Perfil',
+          ),
+
+          
         ],
       ),
     );
+
   }
+
+}
  
   // Campo de texto reutilizável
   Widget _buildTextField(String hint, TextInputType inputType, {bool obscureText = false}) {
@@ -130,7 +206,7 @@ class EditProfileScreen extends StatelessWidget {
       ),
     );
   }
-}
+
  
 void main() {
   runApp(MaterialApp(

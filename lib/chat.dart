@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'principal_Um.dart';
 import 'perfil.dart';
 import 'chat.dart';
+import 'favoritos.dart';
+import 'meusCarros.dart';
  
 void main() {
   runApp(MyApp());
@@ -62,38 +64,97 @@ class ChatScreen extends StatelessWidget {
           ),
         ],
       ),
- 
-      // Menu inferior
+
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.purple,
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey[400],
-        items: const [
+        unselectedItemColor: Colors.white70,
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Início',
+
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrincipalUm()),
+                );
+              },
+              child: Icon(Icons.home),
+      
+              ),
+               label: 'Home',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favoritos',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritosPage()),
+                );
+              },
+              child: Icon(Icons.favorite),
+      
+              ),
+               label: 'Favoritos',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.directions_car),
-            label: 'Veículos',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MeusCarrosScreen()),
+                );
+              },
+              child: Icon(Icons.directions_car),
+      
+              ),
+               label: 'Meus Carros',
           ),
+
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.mail),
-            label: 'Chat',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
+              child: Icon(Icons.mail),
+      
+              ),
+               label: 'Chat',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Perfil',
+              icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PerfilPage()),
+                );
+              },
+              child: Icon(Icons.person),
+      
+              ),
+               label: 'Perfil',
           ),
+
+          
         ],
       ),
     );
+
   }
+
 }
+
+
+ 
+      
  
 class ChatTile extends StatelessWidget {
   final String name;

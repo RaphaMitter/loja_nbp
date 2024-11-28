@@ -1,5 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'principal_Um.dart';
+import 'perfil.dart';
+import 'chat.dart';
+import 'favoritos.dart';
+import 'meusCarros.dart';
  
 class ContatoPage extends StatelessWidget {
   @override
@@ -55,35 +60,94 @@ class ContatoPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+
+       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.purple,
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white70,
-        backgroundColor: Colors.purple,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
+
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrincipalUm()),
+                );
+              },
+              child: Icon(Icons.home),
+      
+              ),
+               label: 'Home',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritosPage()),
+                );
+              },
+              child: Icon(Icons.favorite),
+      
+              ),
+               label: 'Favoritos',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.directions_car),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MeusCarrosScreen()),
+                );
+              },
+              child: Icon(Icons.directions_car),
+      
+              ),
+               label: 'Meus Carros',
           ),
+
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.mail),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
+              child: Icon(Icons.mail),
+      
+              ),
+               label: 'Chat',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: '',
+              icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PerfilPage()),
+                );
+              },
+              child: Icon(Icons.person),
+      
+              ),
+               label: 'Perfil',
           ),
+
+          
         ],
       ),
     );
+
   }
+
+}
+      
  
   Widget _buildListItem(String title) {
     return Column(
@@ -102,4 +166,3 @@ class ContatoPage extends StatelessWidget {
       ],
     );
   }
-}
