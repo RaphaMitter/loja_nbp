@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'contatos.dart';
+import 'principal_Um.dart';
+import 'perfil.dart';
+import 'chat.dart';
+import 'favoritos.dart';
+import 'meusCarros.dart';
 
 void main() {
   runApp(MyApp());

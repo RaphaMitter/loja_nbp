@@ -4,6 +4,8 @@ import 'perfil.dart';
 import 'chat.dart';
 import 'favoritos.dart';
 import 'meusCarros.dart';
+import 'cadastrarVeiculo01.dart';
+import 'editarVeiculo01.dart';
  
 void main() {
   runApp(MyApp());
@@ -84,7 +86,12 @@ class MeusCarrosScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                               context,
+                                     MaterialPageRoute(builder: (context) => EditarVeiculoScreen()),
+                                );
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.purple,
                                 shape: RoundedRectangleBorder(
@@ -119,27 +126,33 @@ class MeusCarrosScreen extends StatelessWidget {
             ),
             Spacer(),
             ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-              child: Text('CADASTRAR NOVO CARRO'),
-            ),
+            onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CadastroVeiculoScreen01()),
+            );
+            },
+            style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.purple,
+            shape: RoundedRectangleBorder(
+           borderRadius: BorderRadius.circular(8.0),
+    ),
+  ),
+  child: Text('CADASTRAR NOVO CARRO'),
+),
+            
           ],
         ),
       ),
   
       
        bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.purple,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white70,
-        items: [
-          BottomNavigationBarItem(
+           backgroundColor: Colors.purple,
+           type: BottomNavigationBarType.fixed,
+             selectedItemColor: Colors.white,
+               unselectedItemColor: Colors.white70,
+             items: [
+                BottomNavigationBarItem(
 
             icon: GestureDetector(
               onTap: () {

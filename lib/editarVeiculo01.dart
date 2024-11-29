@@ -1,5 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'principal_Um.dart';
+import 'contatos.dart'; // Importar a tela ContatoPage
+import 'editarPerfil.dart'; // Importar a tela EditProfileScreen (do arquivo editarPerfil.dart)
+import 'chat.dart';
+import 'ajuda.dart';
+import 'perfil.dart';
+import 'favoritos.dart';
+import 'meusCarros.dart';
  
 void main() {
   runApp(MyApp());
@@ -65,6 +73,27 @@ class EditarVeiculoScreen extends StatelessWidget {
               CustomTextField(
                 label: 'CÂMBIO',
               ),
+
+               SizedBox(height: 16),
+              CustomTextField(
+                label: 'COMBUSTIVEL',
+              ),
+
+               SizedBox(height: 16),
+              CustomTextField(
+                label: 'COR DO VEICULO',
+              ),
+
+               SizedBox(height: 16),
+              CustomTextField(
+                label: 'E-MAIL PARA CONTATO',
+              ),
+
+               SizedBox(height: 16),
+              CustomTextField(
+                label: 'TELEFONE PARA CONTATO',
+              ),
+
               SizedBox(height: 16),
               CustomTextField(
                 label: 'CARROCERIA',
@@ -89,31 +118,87 @@ class EditarVeiculoScreen extends StatelessWidget {
           ),
         ),
       ),
+     
+
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.purple,
-        unselectedItemColor: Colors.grey,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
+           backgroundColor: Colors.purple,
+           type: BottomNavigationBarType.fixed,
+             selectedItemColor: Colors.white,
+               unselectedItemColor: Colors.white70,
+             items: [
+                BottomNavigationBarItem(
+
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrincipalUm()),
+                );
+              },
+              child: Icon(Icons.home),
+      
+              ),
+               label: 'Home',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritosPage()),
+                );
+              },
+              child: Icon(Icons.favorite),
+      
+              ),
+               label: 'Favoritos',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.directions_car),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MeusCarrosScreen()),
+                );
+              },
+              child: Icon(Icons.directions_car),
+      
+              ),
+               label: 'Meus Carros',
           ),
+
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.mail),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
+              child: Icon(Icons.mail),
+      
+              ),
+               label: 'Chat',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: '',
+              icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PerfilPage()),
+                );
+              },
+              child: Icon(Icons.person),
+      
+              ),
+               label: 'Perfil',
           ),
+
+          
         ],
       ),
     );

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
- 
+import 'principal_Um.dart';
+import 'perfil.dart';
+import 'chat.dart';
+import 'favoritos.dart';
+import 'meusCarros.dart';
+import 'contatos.dart';
+
 void main() {
   runApp(MyApp());
 }
- 
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,7 +19,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
- 
+
 class DetalhesVeiculoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,7 +39,7 @@ class DetalhesVeiculoScreen extends StatelessWidget {
                 ),
               ),
             ),
- 
+
             // Imagem do veículo
             Container(
               margin: const EdgeInsets.all(8.0),
@@ -45,7 +51,7 @@ class DetalhesVeiculoScreen extends StatelessWidget {
                 ),
               ),
             ),
- 
+
             // Título e preço
             Container(
               color: Colors.orange,
@@ -72,7 +78,7 @@ class DetalhesVeiculoScreen extends StatelessWidget {
                 ],
               ),
             ),
- 
+
             // Informações do veículo
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -93,7 +99,7 @@ class DetalhesVeiculoScreen extends StatelessWidget {
                 ],
               ),
             ),
- 
+
             // Descrição do dono
             Container(
               color: Colors.purple,
@@ -105,7 +111,7 @@ class DetalhesVeiculoScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
             ),
- 
+
             // Contato
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -121,12 +127,17 @@ class DetalhesVeiculoScreen extends StatelessWidget {
                 ],
               ),
             ),
- 
+
             // Botão "Entrar em contato"
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: ElevatedButton(
                 onPressed: () {
+
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ContatoPage()),
+                );
                   // Ação ao clicar no botão
                 },
                 style: ElevatedButton.styleFrom(
@@ -138,29 +149,78 @@ class DetalhesVeiculoScreen extends StatelessWidget {
                 ),
               ),
             ),
- 
-            // Menu inferior
-            BottomNavigationBar(
-              backgroundColor: Colors.purple,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.grey[400],
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  label: 'Início',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.directions_car),
-                  label: 'Veículos',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle),
-                  label: 'Perfil',
-                ),
-              ],
-            ),
           ],
         ),
+      ),
+
+      // Menu inferior
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.purple,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+        items: [
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrincipalUm()),
+                );
+              },
+              child: Icon(Icons.home),
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritosPage()),
+                );
+              },
+              child: Icon(Icons.favorite),
+            ),
+            label: 'Favoritos',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MeusCarrosScreen()),
+                );
+              },
+              child: Icon(Icons.directions_car),
+            ),
+            label: 'Meus Carros',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
+              child: Icon(Icons.mail),
+            ),
+            label: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PerfilPage()),
+                );
+              },
+              child: Icon(Icons.person),
+            ),
+            label: 'Perfil',
+          ),
+        ],
       ),
     );
   }

@@ -1,11 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'principal_Um.dart';
 import 'perfil.dart';
 import 'chat.dart';
 import 'favoritos.dart';
 import 'meusCarros.dart';
- 
+import 'detalhesMoto.dart';
+
 class FavoritosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,6 +23,7 @@ class FavoritosPage extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         children: [
           _buildFavoriteItem(
+            context, // Passando o context corretamente
             imageUrl: 'https://via.placeholder.com/150', // Substitua pela URL real
             title: 'PEUGEOT 208',
             price: 'R\$ 98.000,00',
@@ -30,6 +31,7 @@ class FavoritosPage extends StatelessWidget {
             location: 'São Paulo/SP',
           ),
           _buildFavoriteItem(
+            context, // Passando o context corretamente
             imageUrl: 'https://via.placeholder.com/150', // Substitua pela URL real
             title: 'YAMAHA FZ25',
             price: 'R\$ 35.000,00',
@@ -38,15 +40,13 @@ class FavoritosPage extends StatelessWidget {
           ),
         ],
       ),
-
-     bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.purple,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white70,
         items: [
           BottomNavigationBarItem(
-
             icon: GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -55,11 +55,9 @@ class FavoritosPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.home),
-      
-              ),
-               label: 'Home',
+            ),
+            label: 'Home',
           ),
-
           BottomNavigationBarItem(
             icon: GestureDetector(
               onTap: () {
@@ -69,11 +67,9 @@ class FavoritosPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.favorite),
-      
-              ),
-               label: 'Favoritos',
+            ),
+            label: 'Favoritos',
           ),
-
           BottomNavigationBarItem(
             icon: GestureDetector(
               onTap: () {
@@ -83,12 +79,9 @@ class FavoritosPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.directions_car),
-      
-              ),
-               label: 'Meus Carros',
+            ),
+            label: 'Meus Carros',
           ),
-
-
           BottomNavigationBarItem(
             icon: GestureDetector(
               onTap: () {
@@ -98,13 +91,11 @@ class FavoritosPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.mail),
-      
-              ),
-               label: 'Chat',
+            ),
+            label: 'Chat',
           ),
-
           BottomNavigationBarItem(
-              icon: GestureDetector(
+            icon: GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
@@ -112,19 +103,16 @@ class FavoritosPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.person),
-      
-              ),
-               label: 'Perfil',
+            ),
+            label: 'Perfil',
           ),
-
-          
         ],
       ),
     );
-
   }
- 
-  Widget _buildFavoriteItem({
+
+  Widget _buildFavoriteItem(
+    BuildContext context, {
     required String imageUrl,
     required String title,
     required String price,
@@ -179,7 +167,12 @@ class FavoritosPage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Ação do botão "Ver oferta"
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetalhesVeiculoScreen(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.purple,
@@ -188,16 +181,6 @@ class FavoritosPage extends StatelessWidget {
                     ),
                   ),
                   child: Text('Ver oferta'),
-                ),
-                Row(
-                  children: [
-                    Icon(Icons.location_on, color: Colors.purple, size: 16),
-                    SizedBox(width: 4),
-                    Text(
-                      location,
-                      style: TextStyle(color: Colors.grey[600]),
-                    ),
-                  ],
                 ),
               ],
             ),

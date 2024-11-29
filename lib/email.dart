@@ -1,5 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'principal_Um.dart';
+import 'perfil.dart';
+import 'chat.dart';
+import 'favoritos.dart';
+import 'meusCarros.dart';
+import 'detalhesMoto.dart';
  
 void main() {
   runApp(MyApp());
@@ -118,33 +124,89 @@ class FaleConoscoScreen extends StatelessWidget {
           ],
         ),
       ),
+
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.purple,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.purple,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
+
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrincipalUm()),
+                );
+              },
+              child: Icon(Icons.home),
+      
+              ),
+               label: 'Home',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritosPage()),
+                );
+              },
+              child: Icon(Icons.favorite),
+      
+              ),
+               label: 'Favoritos',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.directions_car),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MeusCarrosScreen()),
+                );
+              },
+              child: Icon(Icons.directions_car),
+      
+              ),
+               label: 'Meus Carros',
           ),
+
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.mail),
-            label: '',
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
+              child: Icon(Icons.mail),
+      
+              ),
+               label: 'Chat',
           ),
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: '',
+              icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PerfilPage()),
+                );
+              },
+              child: Icon(Icons.person),
+      
+              ),
+               label: 'Perfil',
           ),
+
+          
         ],
       ),
+       
       backgroundColor: Colors.purple,
     );
   }
@@ -164,6 +226,8 @@ class CustomTextField extends StatelessWidget {
     this.maxLines = 1,
     this.keyboardType = TextInputType.text,
   });
+
+  
  
   @override
   Widget build(BuildContext context) {
@@ -200,4 +264,5 @@ class CustomTextField extends StatelessWidget {
       ],
     );
   }
+  
 }

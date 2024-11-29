@@ -1,5 +1,10 @@
-
 import 'package:flutter/material.dart';
+import 'principal_Um.dart';
+import 'perfil.dart';
+import 'chat.dart';
+import 'favoritos.dart';
+import 'meusCarros.dart';
+import 'detalhesMoto.dart';
 
 void main() {
   runApp(MyApp());
@@ -67,11 +72,68 @@ class CadastroVeiculoScreen01 extends StatelessWidget {
                 border: OutlineInputBorder(),
               ),
             ),
+
+              SizedBox(height: 10),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Carroceria',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+              SizedBox(height: 10),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Cambio',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+             SizedBox(height: 10),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Combustivel',
+              ),
+            ),
+
+             SizedBox(height: 10),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Cor do Veiculo',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+               SizedBox(height: 10),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Motorização',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+            
+               SizedBox(height: 10),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'E-mail para contato',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+            
+               SizedBox(height: 10),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Telefone para contato',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
             SizedBox(height: 10),
             TextField(
               decoration: InputDecoration(
                 labelText: 'Valor desejado',
-                border: OutlineInputBorder(),
               ),
             ),
             SizedBox(height: 20),
@@ -86,6 +148,74 @@ class CadastroVeiculoScreen01 extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.purple,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+        items: [
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrincipalUm()),
+                );
+              },
+              child: Icon(Icons.home),
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritosPage()),
+                );
+              },
+              child: Icon(Icons.favorite),
+            ),
+            label: 'Favoritos',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MeusCarrosScreen()),
+                );
+              },
+              child: Icon(Icons.directions_car),
+            ),
+            label: 'Meus Carros',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
+              child: Icon(Icons.mail),
+            ),
+            label: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PerfilPage()),
+                );
+              },
+              child: Icon(Icons.person),
+            ),
+            label: 'Perfil',
+          ),
+        ],
       ),
     );
   }

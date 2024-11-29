@@ -1,11 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'principal_Um.dart';
 import 'perfil.dart';
 import 'chat.dart';
 import 'favoritos.dart';
 import 'meusCarros.dart';
- 
+import 'contatoTelefone.dart'; // Importe a classe DialerScreen
+import 'email.dart';
+
 class ContatoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,17 +30,18 @@ class ContatoPage extends StatelessWidget {
               'ENTRAR EM CONTATO',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
           ),
           Expanded(
             child: ListView(
               children: [
-                _buildListItem('CHAT NBPR'),
-                _buildListItem('E-MAIL NBPR'),
-                _buildListItem('TELEFONE NBPR'),
+                _buildListItem(context, 'CHAT NBPR', ChatScreen() ),
+                _buildListItem(context, 'E-MAIL NBPR', FaleConoscoScreen() ),
+                _buildListItem(context, 'TELEFONE NBPR', DialerScreen()),
               ],
             ),
           ),
@@ -60,15 +62,13 @@ class ContatoPage extends StatelessWidget {
           ),
         ],
       ),
-
-       bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.purple,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white70,
         items: [
           BottomNavigationBarItem(
-
             icon: GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -77,11 +77,9 @@ class ContatoPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.home),
-      
-              ),
-               label: 'Home',
+            ),
+            label: 'Home',
           ),
-
           BottomNavigationBarItem(
             icon: GestureDetector(
               onTap: () {
@@ -91,11 +89,9 @@ class ContatoPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.favorite),
-      
-              ),
-               label: 'Favoritos',
+            ),
+            label: 'Favoritos',
           ),
-
           BottomNavigationBarItem(
             icon: GestureDetector(
               onTap: () {
@@ -105,12 +101,9 @@ class ContatoPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.directions_car),
-      
-              ),
-               label: 'Meus Carros',
+            ),
+            label: 'Meus Carros',
           ),
-
-
           BottomNavigationBarItem(
             icon: GestureDetector(
               onTap: () {
@@ -120,13 +113,11 @@ class ContatoPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.mail),
-      
-              ),
-               label: 'Chat',
+            ),
+            label: 'Chat',
           ),
-
           BottomNavigationBarItem(
-              icon: GestureDetector(
+            icon: GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
@@ -134,22 +125,15 @@ class ContatoPage extends StatelessWidget {
                 );
               },
               child: Icon(Icons.person),
-      
-              ),
-               label: 'Perfil',
+            ),
+            label: 'Perfil',
           ),
-
-          
         ],
       ),
     );
-
   }
 
-}
-      
- 
-  Widget _buildListItem(String title) {
+  Widget _buildListItem(BuildContext context, String title, Widget? screen) {
     return Column(
       children: [
         ListTile(
@@ -159,10 +143,16 @@ class ContatoPage extends StatelessWidget {
           ),
           trailing: Icon(Icons.chevron_right, color: Colors.black54),
           onTap: () {
-            // Ação ao clicar no item
+            if (screen != null) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => screen),
+              );
+            }
           },
         ),
         Divider(height: 1, color: Colors.grey[300]),
       ],
     );
   }
+}

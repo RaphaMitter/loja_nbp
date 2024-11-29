@@ -4,6 +4,7 @@ import 'perfil.dart';
 import 'chat.dart';
 import 'favoritos.dart';
 import 'meusCarros.dart';
+import 'chatMessagens.dart';
  
 void main() {
   runApp(MyApp());
@@ -51,17 +52,25 @@ class ChatScreen extends StatelessWidget {
  
           // Lista de conversas
           Expanded(
-            child: ListView(
-              children: [
-                ChatTile(name: 'Fulano', time: '09:00'),
-                ChatTile(name: 'Fulano', time: '10:20'),
-                ChatTile(name: 'Ciclano', time: '11:00'),
-                ChatTile(name: 'Ciclano', time: '12:00'),
-                ChatTile(name: 'Beltrano', time: '13:00'),
-                ChatTile(name: 'Beltrano', time: '15:00'),
-              ],
+           child: ListView(
+            children: [
+            GestureDetector(
+            onTap: () {
+             Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatScreen02()),
+            );
+           },
+            child: ChatTile(name: 'Fulano', time: '09:00'),
             ),
-          ),
+            ChatTile(name: 'Fulano', time: '10:20'),
+            ChatTile(name: 'Ciclano', time: '11:00'),
+            ChatTile(name: 'Ciclano', time: '12:00'),
+             ChatTile(name: 'Beltrano', time: '13:00'),
+             ChatTile(name: 'Beltrano', time: '15:00'),
+     ],
+  ),
+),
         ],
       ),
 

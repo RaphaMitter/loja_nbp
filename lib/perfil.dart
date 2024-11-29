@@ -64,8 +64,20 @@ class PerfilPage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => EditProfileScreen()),
                   );
                 }),
-                _buildListItem(Icons.favorite, 'MEUS FAVORITOS'),
-                _buildListItem(Icons.directions_car, 'MEUS CARROS'),
+                _buildListItem(Icons.favorite, 'MEUS FAVORITOS', onTap: () {
+                  // Navega para a página de ajuda ao clicar
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FavoritosPage()),  // Navigate to AjudaScreen
+                  );
+                }),
+                _buildListItem(Icons.directions_car, 'MEUS CARROS', onTap: () {
+                  // Navega para a página de ajuda ao clicar
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MeusCarrosScreen()),  // Navigate to AjudaScreen
+                  );
+                }),
                 _buildListItem(Icons.help_outline, 'AJUDA', onTap: () {
                   // Navega para a página de ajuda ao clicar
                   Navigator.push(
