@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'boasVindas.dart';
+import 'principal_Um.dart';
+
+
 void main() {
   runApp(MyApp());
 }
@@ -9,12 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CadastroNovoVeiculoScreen(),
+      home: CadastroNovoUsuario(),
     );
   }
 }
 
-class CadastroNovoVeiculoScreen extends StatelessWidget {
+class CadastroNovoUsuario extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +47,7 @@ class CadastroNovoVeiculoScreen extends StatelessWidget {
                   // Título
                   Center(
                     child: Text(
-                      'Cadastro de novo veículo',
+                      'Cadastro de novo usuario',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -105,7 +109,11 @@ class CadastroNovoVeiculoScreen extends StatelessWidget {
                     children: [
                       TextButton(
                         onPressed: () {
-                          // Ação do botão "Voltar"
+                                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Login ()),
+
+                  );// Ação do botão "Voltar"
                         },
                         child: Text(
                           'Voltar',
@@ -114,6 +122,12 @@ class CadastroNovoVeiculoScreen extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
+
+                          Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PrincipalUm()),
+
+                  );
                           // Ação do botão "Cadastrar"
                         },
                         child: Text(

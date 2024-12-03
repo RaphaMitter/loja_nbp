@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'principal_Um.dart';
 import 'esqueciMinhaSenha.dart';
+import 'cadastrarNovoUsuario.dart';
+import 'detalhesCarro.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -83,6 +86,12 @@ class Login extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
+
+                      Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CadastroNovoUsuario()),
+
+                  );
 
                     },
                     child: Text(

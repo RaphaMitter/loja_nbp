@@ -3,6 +3,7 @@ import 'perfil.dart';
 import 'chat.dart';
 import 'favoritos.dart';
 import 'meusCarros.dart';
+import 'detalhesCarro.dart';
 
 void main() {
   runApp(MyApp());
@@ -85,33 +86,40 @@ class PrincipalUm extends StatelessWidget {
                   border: Border.all(color: Colors.purple, width: 2),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Column(
-                  children: [
-                    Image.asset('assets/pologts.jpg'), // Imagem do carro
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'VW POLO GTS',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.purple),
-                          ),
-                          Text(
-                            'R\$ 100,000.00',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.green),
-                          ),
-                        ],
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CarDetailsScreen01()),
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      Image.asset('assets/pologts.jpg'), // Imagem do carro
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'VW POLO GTS',
+                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.purple),
+                            ),
+                            Text(
+                              'R\$ 100,000.00',
+                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.green),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
           ],
         ),
       ),
-      
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.purple,
         type: BottomNavigationBarType.fixed,
@@ -119,7 +127,6 @@ class PrincipalUm extends StatelessWidget {
         unselectedItemColor: Colors.white70,
         items: [
           BottomNavigationBarItem(
-
             icon: GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -128,11 +135,9 @@ class PrincipalUm extends StatelessWidget {
                 );
               },
               child: Icon(Icons.home),
-      
-              ),
-               label: 'Home',
+            ),
+            label: 'Home',
           ),
-
           BottomNavigationBarItem(
             icon: GestureDetector(
               onTap: () {
@@ -142,11 +147,9 @@ class PrincipalUm extends StatelessWidget {
                 );
               },
               child: Icon(Icons.favorite),
-      
-              ),
-               label: 'Favoritos',
+            ),
+            label: 'Favoritos',
           ),
-
           BottomNavigationBarItem(
             icon: GestureDetector(
               onTap: () {
@@ -156,12 +159,9 @@ class PrincipalUm extends StatelessWidget {
                 );
               },
               child: Icon(Icons.directions_car),
-      
-              ),
-               label: 'Meus Carros',
+            ),
+            label: 'Meus Carros',
           ),
-
-
           BottomNavigationBarItem(
             icon: GestureDetector(
               onTap: () {
@@ -171,13 +171,11 @@ class PrincipalUm extends StatelessWidget {
                 );
               },
               child: Icon(Icons.mail),
-      
-              ),
-               label: 'Chat',
+            ),
+            label: 'Chat',
           ),
-
           BottomNavigationBarItem(
-              icon: GestureDetector(
+            icon: GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
@@ -185,13 +183,28 @@ class PrincipalUm extends StatelessWidget {
                 );
               },
               child: Icon(Icons.person),
-      
-              ),
-               label: 'Perfil',
+            ),
+            label: 'Perfil',
           ),
-
-          
         ],
+      ),
+    );
+  }
+}
+
+class CarDetailsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detalhes do Carro'),
+        backgroundColor: Colors.purple,
+      ),
+      body: Center(
+        child: Text(
+          'Detalhes do VW Polo GTS',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
