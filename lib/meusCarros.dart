@@ -43,12 +43,7 @@ class MeusCarrosScreen extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.vertical(top: Radius.circular(10.0)),
-                    child: Image.network(
-                      'https://via.placeholder.com/350x200', // Substitua pelo URL real da imagem
-                      height: 180,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
+                    child: Image.asset('assets/208.png'),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),

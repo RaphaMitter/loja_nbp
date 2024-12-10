@@ -34,7 +34,7 @@ class ChatScreen extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset(
-                  'assets/logo.png', // Substitua pelo caminho correto do logo.
+                  'assets/NBPR.png', // Substitua pelo caminho correto do logo.
                   height: 50,
                 ),
                 SizedBox(width: 16),

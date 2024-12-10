@@ -34,7 +34,7 @@ class DetalhesVeiculoScreen extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Image.asset(
-                  'assets/logo.png', // Substitua pelo caminho correto do logo.
+                  'assets/NBPR.png', // Substitua pelo caminho correto do logo.
                   height: 50,
                 ),
               ),
@@ -45,10 +45,7 @@ class DetalhesVeiculoScreen extends StatelessWidget {
               margin: const EdgeInsets.all(8.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  'assets/veiculo.jpg', // Substitua pelo caminho da imagem.
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset('assets/fz25.png'),
               ),
             ),
 

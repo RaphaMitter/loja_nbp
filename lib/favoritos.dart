@@ -24,15 +24,16 @@ class FavoritosPage extends StatelessWidget {
         children: [
           _buildFavoriteItem(
             context, // Passando o context corretamente
-            imageUrl: 'https://via.placeholder.com/150', // Substitua pela URL real
+            imageUrl: 'https://image1.mobiauto.com.br/images/api/images/v1.0/63322599/transform/t_crop', // Substitua pela URL real
             title: 'PEUGEOT 208',
             price: 'R\$ 98.000,00',
             details: '2.0 Hatchback\n2019/2020\n6.000 Km\nManual',
             location: 'São Paulo/SP',
           ),
+
           _buildFavoriteItem(
             context, // Passando o context corretamente
-            imageUrl: 'https://via.placeholder.com/150', // Substitua pela URL real
+            imageUrl: 'https://alpes-hub.s3.amazonaws.com/uploads/public/666/06a/a2f/66606aa2f2197142806044.png', // Substitua pela URL real
             title: 'YAMAHA FZ25',
             price: 'R\$ 35.000,00',
             details: '250cc\n2021/2022\n15.000 Km\nManual',
